@@ -1,31 +1,31 @@
 {
   "name": "@smc/plugin-link-template",
+  "displayName": "Link Template Plugin",
+  "description": "Plugin for NocoBase 1.9.x that allows displaying field values as dynamic, template-generated links, with configuration via a popup in Design mode (in the same place as Enable link).",
   "version": "1.0.0",
+  "homepage": "https://github.com/saviomotac/smc-link-template-nocobase-plugin", 
+  "license": "MIT",
+  "author": "Savio Mota Carneiro",
   "main": "dist/server/index.js",
   "module": "dist/client/index.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
-    "build": "tsup"
+    "build": "node scripts/cleanDist.cjs && tsup && node scripts/genExternalVersion.cjs"
   },
+
   "devDependencies": {
-    "@nocobase/client": "^1.9.32",
-    "@nocobase/server": "^1.9.32",
-    "@formily/react": "^2.0.0",
-    "@formily/core": "^2.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "@nocobase/client": "1.9.32",
+    "@nocobase/server": "1.9.32",
+    "@formily/react": "2.x",
+    "@formily/core": "2.x",
+    "react": "18.x",
+    "react-dom": "18.x",
     "tsup": "^8.0.0",
     "typescript": "^5.0.0"
   },
+
   "peerDependencies": {
-    "@nocobase/client": "^1.9.0",
-    "@nocobase/server": "^1.9.0",
-    "@formily/react": "^2.0.0",
-    "@formily/core": "^2.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "@nocobase/client": "1.9.32",
+    "@nocobase/server": "1.9.32"
   }
 }
