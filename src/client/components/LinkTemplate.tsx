@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useRecord } from '@nocobase/client';
 import { useFieldSchema } from '@formily/react';
 
@@ -38,6 +38,12 @@ export const LinkTemplate: React.FC<LinkTemplateProps> = (props) => {
     record,
     href,
   ]);
+  const recordId = record?.id;
+
+  useEffect(() => {
+    if (!href) return;
+    console.info('[link-template][client] LinkTemplate render', { href, text, recordId });
+  }, [href, text, recordId]);
 
   if (!href) return null;
 

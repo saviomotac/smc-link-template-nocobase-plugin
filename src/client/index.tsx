@@ -5,6 +5,8 @@ import { tStr } from './locale';
 
 export class PluginLinkTemplateClient extends Plugin {
   async load() {
+    console.info('[link-template][client] load', { name: this.options?.name, packageName: this.options?.packageName });
+
     this.app.addComponents({ LinkTemplate });
     this.app.schemaSettingsManager.add(linkTemplateComponentFieldSettings);
     this.app.schemaSettingsManager.add(linkTemplateLegacySchemaSettings);
@@ -38,6 +40,8 @@ export class PluginLinkTemplateClient extends Plugin {
     ].forEach((interfaceName) => {
       this.app.addFieldInterfaceComponentOption(interfaceName, linkTemplateComponentOption);
     });
+
+    console.info('[link-template][client] registered field interface component options');
   }
 }
 

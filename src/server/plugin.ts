@@ -1,19 +1,33 @@
 import { Plugin } from '@nocobase/server';
 
 export class PluginLinkTemplateServer extends Plugin {
-  async afterAdd() {}
+  async afterAdd() {
+    this.log.info('[link-template][server] afterAdd');
+  }
 
-  async beforeLoad() {}
+  async beforeLoad() {
+    this.log.info('[link-template][server] beforeLoad');
+  }
 
-  async load() {}
+  async load() {
+    this.log.info('[link-template][server] load');
+  }
 
-  async install() {}
+  async install() {
+    this.log.info('[link-template][server] install');
+  }
 
-  async afterEnable() {}
+  async afterEnable() {
+    this.log.info('[link-template][server] afterEnable');
+  }
 
-  async afterDisable() {}
+  async afterDisable() {
+    this.log.info('[link-template][server] afterDisable');
+  }
 
-  async remove() {}
+  async remove() {
+    this.log.info('[link-template][server] remove');
+  }
 }
 
 export default PluginLinkTemplateServer;
