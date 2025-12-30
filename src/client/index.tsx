@@ -34,6 +34,7 @@ export class PluginLinkTemplateClient extends Plugin {
       'url',
       'number',
       'integer',
+      'formula',
       'percent',
       'createdAt',
       'updatedAt',

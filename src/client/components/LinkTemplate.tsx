@@ -42,7 +42,7 @@ export const LinkTemplate: React.FC<LinkTemplateProps> = (props) => {
 
   useEffect(() => {
     if (!href) return;
-    console.info('[link-template][client] LinkTemplate render', { href, text, recordId });
+    //console.info('[link-template][client] LinkTemplate render', { href, text, recordId });
   }, [href, text, recordId]);
 
   if (!href) return null;
