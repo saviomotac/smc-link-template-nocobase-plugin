@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "D:\\desenvolvimento\\repositorios\\smc-corp\\smc-link-template-nocobase-plugin\\storage\\logs\\main\\.3d79069e4524e40c2bb4343f0d6e695c03e0799f-audit.json",
+    "files": [
+        {
+            "date": 1767065752166,
+            "name": "D:\\desenvolvimento\\repositorios\\smc-corp\\smc-link-template-nocobase-plugin\\storage\\logs\\main\\system_2025-12-30.log",
+            "hash": "5a4abf8fabc2a560054af675d835d8f93acf5d27a88cd709ecf05a64312a8b74"
+        }
+    ],
+    "hashType": "sha256"
+}
