@@ -41,6 +41,16 @@ const createLinkTemplateSettings = (name: string) =>
                     placeholder: 'Abrir {{numero_doc}}',
                   },
                 },
+                linkTarget: {
+                  title: tStr('Open in'),
+                  default: fieldSchema?.['x-component-props']?.linkTarget ?? '_blank',
+                  'x-decorator': 'FormItem',
+                  'x-component': 'Select',
+                  enum: [
+                    { label: tStr('New tab'), value: '_blank' },
+                    { label: tStr('Same tab'), value: '_self' },
+                  ],
+                },
               },
             },
             onSubmit(values) {
@@ -49,6 +59,7 @@ const createLinkTemplateSettings = (name: string) =>
                 component: 'LinkTemplate',
                 linkTemplate: values.linkTemplate,
                 linkTextTemplate: values.linkTextTemplate,
+                linkTarget: values.linkTarget ?? '_blank',
               };
 
               fieldSchema['x-component-props'] = nextComponentProps;

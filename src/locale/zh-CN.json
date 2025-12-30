@@ -2,5 +2,8 @@
   "Link template": "链接模板",
   "Configure link": "配置链接",
   "URL template": "URL 模板",
-  "Link text (optional)": "链接文本（可选）"
+  "Link text (optional)": "链接文本（可选）",
+  "Open in": "打开方式",
+  "New tab": "新标签页",
+  "Same tab": "当前标签页"
 }

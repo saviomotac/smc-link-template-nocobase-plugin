@@ -21,6 +21,7 @@ export class PluginLinkTemplateClient extends Plugin {
         return {
           linkTemplate: '',
           linkTextTemplate: '',
+          linkTarget: '_blank',
         };
       },
     };

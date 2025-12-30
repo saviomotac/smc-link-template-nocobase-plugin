@@ -12,6 +12,7 @@ function applyTemplate(template: string, record: any) {
 export type LinkTemplateProps = {
   linkTemplate?: string;
   linkTextTemplate?: string;
+  linkTarget?: '_blank' | '_self' | string;
   record?: any;
 };
 
@@ -29,6 +30,11 @@ export const LinkTemplate: React.FC<LinkTemplateProps> = (props) => {
     fieldSchema?.['x-component-props']?.linkTextTemplate ??
     (fieldSchema as any)?.['x-link-text-template'] ??
     '';
+  const target =
+    props.linkTarget ??
+    fieldSchema?.['x-component-props']?.linkTarget ??
+    (fieldSchema as any)?.['x-link-target'] ??
+    '_blank';
 
   const record = props.record ?? recordFromContext ?? {};
 
@@ -47,8 +53,10 @@ export const LinkTemplate: React.FC<LinkTemplateProps> = (props) => {
 
   if (!href) return null;
 
+  const rel = target === '_blank' ? 'noreferrer' : undefined;
+
   return (
-    <a href={href} target="_blank" rel="noreferrer">
+    <a href={href} target={target} rel={rel}>
       {text}
     </a>
   );
