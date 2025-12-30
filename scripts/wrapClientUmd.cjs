@@ -9,11 +9,24 @@ function readPackageName() {
 }
 
 function wrapAsUmd({ packageName, input }) {
+  if (
+    input.includes(`define(${JSON.stringify(packageName)}`) ||
+    input.includes(`define("${packageName}"`) ||
+    input.includes(`define('${packageName}'`) ||
+    input.includes(`define.amd?define(${JSON.stringify(packageName)}`)
+  ) {
+    return input;
+  }
+
   const replaced = input
-    .replaceAll('require("@nocobase/client")', 'nocobaseClient')
-    .replaceAll('require("react")', 'react')
-    .replaceAll('require("@formily/react")', 'formilyReact')
-    .replaceAll('require("react/jsx-runtime")', 'jsxRuntime');
+    .replaceAll(`require("${'@nocobase/client'}")`, 'nocobaseClient')
+    .replaceAll(`require('${'@nocobase/client'}')`, 'nocobaseClient')
+    .replaceAll(`require("${'react'}")`, 'react')
+    .replaceAll(`require('${'react'}')`, 'react')
+    .replaceAll(`require("${'@formily/react'}")`, 'formilyReact')
+    .replaceAll(`require('${'@formily/react'}')`, 'formilyReact')
+    .replaceAll(`require("${'react/jsx-runtime'}")`, 'jsxRuntime')
+    .replaceAll(`require('${'react/jsx-runtime'}')`, 'jsxRuntime');
 
   const header = `/*! ${packageName} */\n` +
     `(function (root, factory) {\n` +
@@ -33,7 +46,8 @@ function wrapAsUmd({ packageName, input }) {
     `  try {\n`;
 
   const footer =
-    `\n    return module.exports;\n` +
+    `\n    var value = module.exports;\n` +
+    `    return value || { default: value };\n` +
     `  } catch (error) {\n` +
     `    try { console.error('[nocobase plugin client load error]', ${JSON.stringify(packageName)}, error); } catch (e) {}\n` +
     `    throw error;\n` +
@@ -65,4 +79,3 @@ function main() {
 }
 
 main();
-

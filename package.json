@@ -2,7 +2,7 @@
   "name": "@smc/plugin-link-template",
   "displayName": "@smc: Link Template Plugin",
   "description": "Plugin for NocoBase 1.9.x that allows displaying field values as dynamic, template-generated links, with configuration via a popup in Design mode (in the same place as Enable link).",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/saviomotac/smc-link-template-nocobase-plugin",
   "license": "MIT",
   "author": "Savio Mota Carneiro",
@@ -15,7 +15,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "node scripts/cleanDist.cjs && tsup && node scripts/wrapClientUmd.cjs && node scripts/copyLocale.cjs && node scripts/genExternalVersion.cjs"
+    "build": "node scripts/cleanDist.cjs && tsup && node scripts/wrapClientUmd.cjs && node scripts/copyLocale.cjs && node scripts/verifyDist.cjs && node scripts/genExternalVersion.cjs"
   },
   "devDependencies": {
     "tsup": "^8.5.1",
